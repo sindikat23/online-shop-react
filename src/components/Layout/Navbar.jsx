@@ -4,18 +4,18 @@ import NavHeader from "./NavHeader";
 const Navbar = () => {
     return (
         <div className="bg-gray-100 shadow-md p-4">
-            <nav className="container mx-auto flex justify-between gap-4 items-center">
+            <nav className="flex justify-between items-center">
                 <div className="logo">
                     <Link to={'/'}>
                     <img
-                        className="h-30 w-30"
+                        className="h-20 w-20"
                         src="https://liquiddeath.com/cdn/shop/files/Logo-Stopandshop-750x750_1500x.webp?v=1684777960"
                         alt="logo"
                     />
                     </Link>
                     
                 </div>
-                <div className="hidden md:flex gap-6 items-center text-gray-800 font-medium">
+                <div className="hidden md:flex gap-2 items-center text-gray-800 font-medium">
                     <Link to={'/'} className="hover:text-blue-600">Сувениры</Link>
                     <Link to={'/'} className="hover:text-blue-600">Красота и здоровье</Link>
 
@@ -44,10 +44,10 @@ const Navbar = () => {
                     <Link to={'/'} className="hover:text-blue-600">Авто товары</Link>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                     <input
                         type="search"
-                        className="border border-gray-300 rounded-md px-4 py-2"
+                        className="border border-gray-300 rounded-md px-2 py-1 w-[100px]"
                         placeholder="Поиск..."
                     />
                     <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
