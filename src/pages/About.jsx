@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { apiClient } from '../utils/apiservice';
 import { categories_url, product_url } from '../utils/urls';
 import Loading from '../components/Layout/Loading';
-import Carsuel from '../components/Layout/Carusel';
-import Carusel from '../components/Layout/Carusel';
+import Carsuel from '../components/Carusel';
+import Carusel from '../components/Carusel';
 
 const About = () => {
   const [loading, setLoading] = useState(true)

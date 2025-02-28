@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { apiClient } from '../utils/apiservice';
 import { categories_url, product_url } from '../utils/urls';
 import Loading from '../components/Layout/Loading';
-import Carusel from '../components/Layout/Carusel';
+import Carusel from '../components/Carusel';
 import { FaSearch } from "react-icons/fa";
 
 const Products = () => {
