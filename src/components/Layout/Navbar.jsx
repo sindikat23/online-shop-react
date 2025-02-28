@@ -1,44 +1,37 @@
 import { Link } from "react-router-dom";
-import NavHeader from "./NavHeader";
 
 const Navbar = () => {
     return (
-        <div className="bg-gray-100 shadow-md p-4">
+        <div className="bg-gray-100 shadow-md p-1 sticky top-0 z-50">
             <nav className="flex justify-between items-center">
                 <div className="logo">
                     <Link to={'/'}>
-                    <img
-                        className="h-20 w-20"
-                        src="https://liquiddeath.com/cdn/shop/files/Logo-Stopandshop-750x750_1500x.webp?v=1684777960"
-                        alt="logo"
-                    />
+                        <img
+                            className="h-[100px] w-[180px]"
+                            src="https://liquiddeath.com/cdn/shop/files/Logo-Stopandshop-750x750_1500x.webp?v=1684777960"
+                            alt="logo"
+                        />
                     </Link>
-                    
+
                 </div>
-                <div className="hidden md:flex gap-2 items-center text-gray-800 font-medium">
-                    <Link to={'/'} className="hover:text-blue-600">Сувениры</Link>
-                    <Link to={'/'} className="hover:text-blue-600">Красота и здоровье</Link>
+                <div className="hidden md:flex gap-4 items-center justify-between text-gray-800 font-medium">
+                    <Link to={'/'} className="hover:text-blue-600">About</Link>
+                    <Link to={'/products'} className="hover:text-blue-600">Products</Link>
 
-                    <select className="border border-gray-300 rounded-md p-2 bg-white">
-                        <option>Мужская одежда</option>
-                        <option>Женская одежда</option>
-                        <option>Детская одежда</option>
-                        <option>Акссесуары</option>
+                    {/* <select className="border border-gray-300 rounded-md p-2 bg-white">
+                        <option value={"adidas"}>Adidas</option>
+                        <option value={"reebook"}>Reebook</option>
+                        <option value={"nike"}>Nike</option>
+                        <option value={"joma"}>Joma</option>
                     </select>
 
                     <select className="border border-gray-300 rounded-md p-2 bg-white">
-                        <option>Adidas</option>
-                        <option>Reebook</option>
-                        <option>Nike</option>
-                        <option>Joma</option>
-                    </select>
-
-                    <select className="border border-gray-300 rounded-md p-2 bg-white">
-                        <option>Обувь</option>
-                        <option>Женская одежда</option>
-                        <option>Детская одежда</option>
-                        <option>Акссесуары</option>
-                    </select>
+                        <option value={"all"}>Всё товары</option>
+                        <option value={"men's_clothing"}>Мужская одежда</option>
+                        <option value={"women's_clothing"}>Женская одежда</option>
+                        <option value={"electronics"}>Электроники</option>
+                        <option value={"jewlery"}>Ювелиры</option>
+                    </select> */}
 
                     <Link to={'/'} className="hover:text-blue-600">Хоз. товары</Link>
                     <Link to={'/'} className="hover:text-blue-600">Авто товары</Link>
@@ -47,7 +40,7 @@ const Navbar = () => {
                 <div className="flex items-center gap-2">
                     <input
                         type="search"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-[100px]"
+                        className="border border-gray-300 rounded-md px-2 py-1 w-[150px]"
                         placeholder="Поиск..."
                     />
                     <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
@@ -66,7 +59,7 @@ const Navbar = () => {
                 </div>
             </nav>
         </div>
-
+        
         // <header className="text-gray-600 body-font">
         //     <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         //         <Link to={'/'} className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">

@@ -5,14 +5,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import App from './App'
 import Products from './pages/Products.jsx'
 import ProductDetail from './pages/ProductDetail.jsx'
+import About from './pages/About.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route path='/' element={<Products />} />
-          <Route path='/product-detail/:product_id' element={<ProductDetail/>} />
+          <Route path='/' element={<About />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/product-detail/:product_id' element={<ProductDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
