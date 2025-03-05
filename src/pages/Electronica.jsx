@@ -6,40 +6,30 @@ import { categories_url, product_url } from '../utils/urls';
 import Loading from '../components/Layout/Loading';
 import Carsuels from '../components/Carusels';
 
-const About = () => {
+const Electronica = () => {
   const [loading, setLoading] = useState(true)
   const [data, setData] = useState([])
   const [category, setCategory] = useState([])
   const getCategory = async () => {
     let ress = await apiClient({
-      url: categories_url
+      url:product_url + `?limit=194&skip=0`
     })
-    // console.log(ress.data);
     if (ress?.is_success) {
       setCategory(ress?.data)
       setLoading(false)
+      
     }
 
   }
   const getProducts = async () => {
     let res = await apiClient({
-      url: product_url
+      url: product_url + `?limit=194&skip=0`
     })
-    // console.log(res);
     if (res?.is_success) {
       setData(res.data.products)
       setLoading(false)
     }
 
-    // axios.get("https://fakestoreapi.com/products")
-    // .then((res) => {
-    //     if (res?.status == 200) {
-    //         setData(res?.data)
-    //     }
-    // })
-    // .catch((error) => {
-    //     console.log(error);
-    // })
   }
   useEffect(() => {
     getCategory()
@@ -54,13 +44,12 @@ const About = () => {
     <div className="container mx-auto px-2 py-3">
       <Carsuels />
 
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Mahsulotlar ro‘yxati about</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">Electronics</h2>
 
       <div className='flex gap-4'>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {data?.map((item, index) => {
-            if (item.price > 70) {
-              // console.log(item.price +" aaa "+index);
+          {data?.map((item) => {
+            if (item.category == "laptops" || item.category == "smartphones") {
 
               return (
                 <div
@@ -96,4 +85,4 @@ const About = () => {
   );
 }
 
-export default About
+export default Electronica

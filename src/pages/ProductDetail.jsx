@@ -14,7 +14,9 @@ const ProductDetail = () => {
         let res = await apiClient({
             url: `${product_url}/${product_id}`
         })
-        // console.log(res);
+        // console.log(product_id);
+        console.log(res);
+        
 
         if (res.is_success) {
             // console.log(res?.data);
@@ -46,7 +48,7 @@ const ProductDetail = () => {
                         Description: <span className="text-green-600 hover:underline">{product?.description}</span>
                     </p>
                     <p className=" text-[20px] font-semibold text-blue-600">
-                        Count: <span className="hover:text-green-600">{product?.minimumOrderQuantity}</span>
+                        Count: <span className="hover:text-green-600">{product?.stock}</span>
                     </p>
                     <p className=" text-[20px] font-semibold text-gray-800 mt-3 hover:text-blue-600">
                         Category: <span className="hover:text-green-600">{product?.category}</span>

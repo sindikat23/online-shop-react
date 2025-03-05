@@ -1,6 +1,15 @@
+import { useContext } from "react";
+import { FaSearch } from "react-icons/fa";
+import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartList";
+import { FaUserAlt } from "react-icons/fa";
+
 
 const Navbar = () => {
+    const { cart } = useContext(CartContext)
+    // console.log(cart);
+
     return (
         <div className="bg-gray-100 shadow-md p-1 sticky top-0 z-50">
             <nav className="flex justify-between items-center">
@@ -18,48 +27,31 @@ const Navbar = () => {
                     <Link to={'/'} className="hover:text-blue-600">About</Link>
                     <Link to={'/products'} className="hover:text-blue-600">Products</Link>
 
-                    {/* <select className="border border-gray-300 rounded-md p-2 bg-white">
-                        <option value={"adidas"}>Adidas</option>
-                        <option value={"reebook"}>Reebook</option>
-                        <option value={"nike"}>Nike</option>
-                        <option value={"joma"}>Joma</option>
-                    </select>
-
-                    <select className="border border-gray-300 rounded-md p-2 bg-white">
-                        <option value={"all"}>Всё товары</option>
-                        <option value={"men's_clothing"}>Мужская одежда</option>
-                        <option value={"women's_clothing"}>Женская одежда</option>
-                        <option value={"electronics"}>Электроники</option>
-                        <option value={"jewlery"}>Ювелиры</option>
-                    </select> */}
-
-                    <Link to={'/'} className="hover:text-blue-600">Хоз. товары</Link>
-                    <Link to={'/'} className="hover:text-blue-600">Авто товары</Link>
+                    <Link to={'/household'} className="hover:text-blue-600">Household goods</Link>
+                    <Link to={'/electronics'} className="hover:text-blue-600">Elecrtonic's</Link>
                 </div>
 
                 <div className="flex items-center gap-2">
-                    <input
-                        type="search"
-                        className="border border-gray-300 rounded-md px-2 py-1 w-[150px]"
-                        placeholder="Поиск..."
-                    />
-                    <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
-                        🔍
-                    </button>
-
-                    <button className="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400">
-                        🛒
-                    </button>
-
-                    <select className="border border-gray-300 rounded-md p-2 bg-white">
+                    <Link to={'/cart-list'}>
+                        <button className="flex items-center gap-2 bg-violet-500 px-4 py-2 rounded-md active:bg-violet-300 text-base text-white font-semibold">
+                            Cart <IoCartOutline />
+                            <sup>{cart.length}</sup>
+                        </button>
+                    </Link>
+                    <select className="border border-gray-300 rounded-md p-2 bg-white text-base outline-0">
+                        <option>ENG</option>
                         <option>UZB</option>
                         <option>RUS</option>
-                        <option>ENG</option>
                     </select>
+                    <Link to={'/profile'}>
+                        <button className='bg-violet-500 p-3 rounded-3xl active:bg-violet-300 text-base text-white font-semibold'>
+                            <FaUserAlt />
+                        </button>
+                    </Link>
                 </div>
             </nav>
         </div>
-        
+
         // <header className="text-gray-600 body-font">
         //     <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         //         <Link to={'/'} className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">

@@ -6,7 +6,7 @@ import { IoLogoTwitter } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-8">
+    <footer className="bg-gray-900 text-white py-2">
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         
         <div>
@@ -65,7 +65,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t border-gray-700 mt-8 pt-4 text-center text-gray-400 cursor-pointer">
+      <div className="border-t border-gray-700 mt-2 pt-3 text-center text-gray-400 cursor-pointer">
         <p>© 2025 Stop Shop. Arzon va sifatli.</p>
       </div>
     </footer>

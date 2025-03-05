@@ -8,8 +8,8 @@ export const apiClient = axios.create({
 apiClient.interceptors.response.use(
     (res) => {
         return {
-            data: res?.data,
-            is_success: res?.status ? true : false,
+                data: res?.data,
+                is_success: res?.status ? true : false,
         }
 
     },

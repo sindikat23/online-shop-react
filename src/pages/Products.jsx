@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { apiClient } from '../utils/apiservice';
 import { categories_url, product_url } from '../utils/urls';
 import Loading from '../components/Layout/Loading';
-import Carusel from '../components/Carusel';
+import Carusels from '../components/Carusels';
 import { FaSearch } from "react-icons/fa";
+import { CartContext } from '../Context/CartList';
 
 const Products = () => {
   const [loading, setLoading] = useState(true)
@@ -16,12 +17,14 @@ const Products = () => {
   const [page, setPage] = useState(0)
   const [skip, setSkip] = useState(1)
 
+  const { pushCart} = useContext(CartContext)
+
   const getProducts = async () => {
     let res = await apiClient({
       url: category == null ? product_url + `?limit=18&skip=${(skip - 1) * 18}` : product_url + `/category/${category}?limit=18&skip=${(skip - 1) * 18}`
-      
+    
     })
-    console.log(res?.data.products);
+    // console.log(res?.data.products);
     if (res?.is_success) {
       setData(res.data.products)
       createPagination(res?.data.total)
@@ -95,7 +98,7 @@ const Products = () => {
 
   return (
     <div className="container mx-auto">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Mahsulotlar ro‘yxati</h2>
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">Product list</h2>
       <div className='flex gap-2 my-4 items-center'>
         <input
           onChange={(val) => {
@@ -138,8 +141,12 @@ const Products = () => {
                   <Link to={`/product-detail/${item.id}`}>
                     <p className="text-gray-700 font-medium mt-2 underline">Price: <span className="text-green-600 font-bold underline">{item.price} $</span></p>
                   </Link>
-                  <button className="mt-4 w-full bg-blue-600 border border-blue-600 font-semibold text-white py-2 rounded-lg active:bg-blue-400 transition">
-                    Buy
+                  <button 
+                  className="mt-4 w-full bg-blue-600 border border-blue-600 font-semibold text-white py-2 rounded-lg active:bg-blue-400 transition"
+                  onClick={()=>{
+                    pushCart(item)
+                  }}
+                  >Buy
                   </button>
                 </div>
               ))}
@@ -190,7 +197,7 @@ const Products = () => {
         }
       </div>
       <div className='w-full'>
-        <Carusel />
+        <Carusels />
       </div>
     </div>
   );
