@@ -60,6 +60,7 @@ const CartListProvider = ({ children }) => {
         let current = [...cart]
         current.splice(i, 1)
         setCart(current)
+        toast.error("Mahsulot o'chirildi")
     }
 
     return (<CartContext.Provider value={{ cart, setCart, pushCart, incr, decr, deleteBtn }}>
